@@ -11,8 +11,8 @@ public class Banner : MonoBehaviour
 
     int count = 0;
     int rareCount = 0;
-    int superRareCount = 0;
-    int specialSuperRareCount = 0;
+    int epicCount = 0;
+    int legendaryCount = 0;
 
     public bool guaranteeFlag = false;
 
@@ -20,16 +20,16 @@ public class Banner : MonoBehaviour
     {
         textInfo.text = "Count: " + count + "\n" +
             "R: " + rareCount + "\n" +
-            "SR: " + superRareCount + "\n" +
-            "SSR: " + specialSuperRareCount ;
+            "SR: " + epicCount + "\n" +
+            "SSR: " + legendaryCount;
 
         CheckGuarantee();
     }
 
     public void AddCount() { count += 1; }
     public void AddRare() { rareCount += 1; }
-    public void AddSuperRare() { superRareCount += 1; }
-    public void AddSpecialSuperRare() { specialSuperRareCount += 1; count = 0; }
+    public void AddEpic() { epicCount += 1; }
+    public void AddLegendary() { legendaryCount += 1; count = 0; }
 
     private void CheckGuarantee()
     {

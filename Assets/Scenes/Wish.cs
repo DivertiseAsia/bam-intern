@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Wish : MonoBehaviour
 {
-    [SerializeField] Color general = Color.gray;
+    [SerializeField] Color common = Color.gray;
     [SerializeField] Color rare = Color.green;
     float rareRate = 0.2f;
-    [SerializeField] Color superRare = Color.cyan;
-    float superRareRate = 0.15f;
-    [SerializeField] Color specialSuperRare = Color.yellow;
-    float specialSuperRareRate = 0.05f;
+    [SerializeField] Color Epic = Color.cyan;
+    float EpicRate = 0.15f;
+    [SerializeField] Color legendary = Color.yellow;
+    float legendaryRate = 0.05f;
 
     [SerializeField] Banner banner;
     [SerializeField] int SetCount = 10;
@@ -49,8 +49,8 @@ public class Wish : MonoBehaviour
 
         Debug.Log(number);
         if (number > rareRate) getGen();
-        else if (number > superRareRate) getR();
-        else if (number > specialSuperRareRate) getSR();
+        else if (number > EpicRate) getR();
+        else if (number > legendaryRate) getSR();
         else getSSR();
 
         banner.AddCount();
@@ -58,13 +58,13 @@ public class Wish : MonoBehaviour
 
     void getSSR()
     {
-        display.color = specialSuperRare;
-        banner.AddSpecialSuperRare();
+        display.color = legendary;
+        banner.AddLegendary();
     }
     void getSR()
     {
-        display.color = superRare;
-        banner.AddSuperRare();
+        display.color = Epic;
+        banner.AddEpic();
     }
     void getR()
     {
@@ -73,6 +73,6 @@ public class Wish : MonoBehaviour
     }
     void getGen()
     {
-        display.color = general;
+        display.color = common;
     }
 }

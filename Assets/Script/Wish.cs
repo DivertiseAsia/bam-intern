@@ -18,7 +18,6 @@ public class Wish : MonoBehaviour
 
     [SerializeField] Image displayImage;
     [SerializeField] int spendingCurrencyPerWish;
-    [SerializeField] CurrencyType spendinCurrencyType;
 
     Image display => GetComponent<Image>();
 

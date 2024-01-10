@@ -5,7 +5,7 @@ using UnityEngine;
 public class Account : MonoBehaviour
 {
     protected int accountId;
-    protected string name;
+    protected string accName;
     protected string message;
     protected List<Item> ownedList;
     protected List<Money> wallet;
@@ -24,25 +24,29 @@ public class Account : MonoBehaviour
     {
         wallet.Add(new Money(currency, amount));
     }
-    public void TopUp(Currency currency, int amount)
+    public void TopUp(string currencyName, int amount)
     {
-        Money m = wallet.Find(_m => (int)_m.GetCurrencyType() == (int)currency.GetType());
-        m.AddMoney(amount);
+        Money m = wallet.Find(_m => _m.GetCurrencyName() == currencyName);
+        if (m == null)
+        {
+
+        }
+        m.TopUp(amount);
     }
 
-    public void Spend(Currency currency, int amount)
+    public void Spend(string currencyName, int amount)
     {
-        Money m = wallet.Find(_m => (int)_m.GetCurrencyType() == (int)currency.GetType());
-        m.UseMoney(amount);
+        Money m = wallet.Find(_m => _m.GetCurrencyName() == currencyName);
+        m.Spend(amount);
     }
-
-
 }
 
-public class Money
+
+public class Money : Object
 {
     protected Currency currency;
-    protected int amount; 
+    protected int amount;
+
     public Money(Currency _currency, int _amount)
     {
         currency = _currency;
@@ -54,18 +58,21 @@ public class Money
         currency = _currency;
         amount = 0;
     }
-
-    public CurrencyType GetCurrencyType()
+    public int GetCurrencyID()
     {
-        return currency.GetType();
+        return currency.currencyID;
+    }
+    public string GetCurrencyName()
+    {
+        return currency.GetName();
     }
 
-    public void AddMoney(int addUp)
+    public void TopUp(int addUp)
     {
         amount += addUp;
     }
 
-    public void UseMoney(int used)
+    public void Spend(int used)
     {
         amount -= used;
     }

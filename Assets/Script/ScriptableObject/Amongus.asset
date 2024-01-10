@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5e6122a0b114a4db8880933e5486fe, type: 3}
   m_Name: Amongus
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
-  name: ItemName
+  itemIcon: {fileID: 21300000, guid: 3377a64b35b76f14483a8b7570af210d, type: 3}
+  name: Dead Astronaut
   description: 
   rarity: 0
   itemType: 1

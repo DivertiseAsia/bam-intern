@@ -21,7 +21,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] ItemTemplateScriptableObject itemTemplate;
 
-    [SerializeField] private string name = "ItemName";
+    [SerializeField] private new string name = "ItemName";
     [SerializeField] private string description;
     [SerializeField] private Rarity rarity = Rarity.common;
     [SerializeField] protected ItemType itemType;

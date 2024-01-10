@@ -17,4 +17,4 @@ MonoBehaviour:
   description: 
   rarity: 0
   itemType: 1
-  atkPoint: 0
+  atkPoint: 10

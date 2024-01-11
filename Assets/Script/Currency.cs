@@ -6,35 +6,37 @@ using UnityEditor;
 
 public class Currency : Object
 {
+    [SerializeField] public CurrencyScriptableObject currencyTemplate;
     public int currencyID;
-    private string currencyName;
+    private new string name;
     private Sprite currencyIcon;
     private int maxCapa;
 
-    public Currency(string _name, int _id, int _maxCapa)
+    public Currency(string _name, int _id, int _maxCapa, Sprite _icon)
     {
-        currencyName = _name;
+        name = _name;
         currencyID = _id;
         maxCapa = _maxCapa;
+        currencyIcon = _icon;
     }
 
     public Currency(string _name, int _id)
     {
-        currencyName = _name;
+        name = _name;
         currencyID = _id;
     }
 
     public Currency(CurrencyScriptableObject _currency)
     {
-        currencyName = _currency.currencyName;
-        currencyID = _currency.currencyID;
+        name = _currency.currencyName;
+        currencyID = _currency.list.getCount() - 1;
         currencyIcon = _currency.currencyIcon;
         maxCapa = _currency.maxCapa;
     }
 
     public string GetName()
     {
-        return currencyName;
+        return name;
     }
 
     public Sprite GetIcon()
@@ -49,74 +51,74 @@ public class Currency : Object
 
     public void Edit(CurrencyScriptableObject c)
     {
-        currencyName = c.currencyName;
+        name = c.currencyName;
         currencyIcon = c.currencyIcon;
         maxCapa = c.maxCapa;
     }
 }
 
-public static class CurrenciesList
+[CreateAssetMenu(fileName = "NewCurrency", menuName = "Project Exclusive/Currency/New Currency")]
+public class CurrencyScriptableObject : ScriptableObject
 {
-    public static List<Currency> staticCurrenciesCollector;
+    public string currencyName;
+    public Sprite currencyIcon;
+    public int maxCapa;
+    public CurrenciesList list;
+    public string path;
 
-    static CurrenciesList()
+    public CurrencyScriptableObject()
     {
-        staticCurrenciesCollector = new List<Currency>();
-    }
-
-    public static void setCurrenciesList(List<Currency> newList)
-    {
-        staticCurrenciesCollector = newList;
-    }
-
-    public static int getCount()
-    {
-        if (staticCurrenciesCollector == null) return 0;
-        return staticCurrenciesCollector.Count;
-    }
-    public static void AddCurrency(Currency currency)
-    {
-        staticCurrenciesCollector.Add(currency);
-    }
-
-    public static Currency FindCurrency(string currencyName)
-    {
-        return staticCurrenciesCollector.Find(_c => _c.GetName().Equals(currencyName));
-    }
-
-    public static Currency FindCurrency(int id)
-    {
-        return staticCurrenciesCollector.Find(_c => _c.currencyID == id);
-    }
-
-    public static void RemoveCurrency(string currencyName)
-    {
-        staticCurrenciesCollector.Remove(staticCurrenciesCollector.Find(_c => _c.GetName().Equals(currencyName)));
-    }
-    public static void RemoveCurrency(int id)
-    {
-        staticCurrenciesCollector.Remove(staticCurrenciesCollector.Find(_c => _c.currencyID == id));
-    }
-
-    public static void HardResetList()
-    {
-        staticCurrenciesCollector = new List<Currency>();
+        path = "D:/Games/DivertiseAsiaIntern/bam-intern/Assets/Currency";
     }
 }
 
-
-public class CurrenciesListEditor: EditorWindow
+[CustomEditor(typeof(CurrencyScriptableObject))]
+public class CurrencyEditor : Editor
 {
-    [MenuItem("Window/Game Exclusive/Currencies List")]
-    public static void ShowWindow()
+    CurrencyScriptableObject currency;
+
+    public void OnEnable()
     {
-        CurrenciesListEditor wnd = GetWindow<CurrenciesListEditor>();
-        wnd.titleContent = new GUIContent("Currencies List");
+        currency = (CurrencyScriptableObject)target;
     }
 
-    public void CreateGUI()
+    public override void OnInspectorGUI()
     {
-        Label lable = new Label("Count: " + CurrenciesList.getCount());
-        rootVisualElement.Add(lable);
+        EditorGUILayout.PrefixLabel("Add To");
+        currency.list = (CurrenciesList)EditorGUILayout.ObjectField(currency.list, typeof(CurrenciesList), false);
+        EditorGUILayout.PrefixLabel("Currency Detail");
+
+        if (currency.list == null) return;
+
+        if (currency.list.getCount() != 0 && currency.list.FindCurrency(currency.name)) EditorGUILayout.LabelField("ID", "Added To List");
+        else EditorGUILayout.LabelField("ID", (currency.list.getCount()) + "");
+        currency.currencyName = EditorGUILayout.TextField("Name", currency.currencyName);
+        currency.maxCapa = EditorGUILayout.IntField("Max Capacity", currency.maxCapa);
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PrefixLabel("Currrency Icon");
+        currency.currencyIcon = (Sprite)EditorGUILayout.ObjectField(currency.currencyIcon, typeof(Sprite), false, GUILayout.Width(65f), GUILayout.Height(65f));
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        currency.path = EditorGUILayout.TextField("Path", currency.path);
+        if (GUILayout.Button("Save Path", GUILayout.Width(10f), GUILayout.Height(10f)))
+        {
+            currency.path = EditorUtility.OpenFolderPanel("Save at", "", "");
+        }
+        EditorGUILayout.EndHorizontal();
+
+        if (GUILayout.Button("Add Currency To List")) AddCurrency();
+
+        EditorUtility.SetDirty(currency);
+
+
+    }
+    private void AddCurrency()
+    {
+        //this line is null
+        Currency _c = new Currency(currency.name, (currency.list.getCount()), currency.maxCapa, currency.currencyIcon);
+        AssetDatabase.AddObjectToAsset(_c, currency.path);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 }

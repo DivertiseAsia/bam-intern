@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15728fbd9a208bd4bbba3b6b25559727, type: 3}
-  m_Name: NewCurrency
+  m_Name: k
   m_EditorClassIdentifier: 
-  currencyID: 0
   currencyName: 
   currencyIcon: {fileID: 0}
   maxCapa: 0
+  list: {fileID: 0}

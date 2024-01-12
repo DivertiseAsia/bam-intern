@@ -21,6 +21,15 @@ public class Wish : MonoBehaviour
 
     Image display => GetComponent<Image>();
 
+    public int GetSpendingPerWish()
+    {
+        return spendingCurrencyPerWish;
+    }
+    public int GetSetCount()
+    {
+        return SetCount;
+    }
+
     public void Roll()
     {
         float number = Random.value;

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15728fbd9a208bd4bbba3b6b25559727, type: 3}
-  m_Name: AAA
+  m_Name: A
   m_EditorClassIdentifier: 
-  currencyName: 
-  currencyIcon: {fileID: 0}
-  maxCapa: 0
-  list: {fileID: 0}
+  currencyName: A
+  currencyIcon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  maxCapa: 9999
+  list: {fileID: -2654294193191364039, guid: 2371db34e9d6031459d4343fbe9ff12f, type: 3}
+  path: D:/Games/DivertiseAsiaIntern/bam-intern/Assets/Currency

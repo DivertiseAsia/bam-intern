@@ -33,7 +33,7 @@ public class CurrenciesList : MonoBehaviour
 
     public bool CheckInList(string currencyName)
     {
-        return FindCurrency(name) != null;
+        return FindCurrency(currencyName) != null;
     }
     public bool CheckInList(int id)
     {

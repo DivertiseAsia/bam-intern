@@ -42,7 +42,8 @@ public class Currency : System.Object
         maxCapa = 9999;
     }
 
-    [ContextMenu("Project Exclusive/New Test Currency")]
+    //[ContextMenu("Project Exclusive/New Test Currency")]
+    //Currency Created by CurrencySO 
     public void CreateNewCurrency()
     {
         Debug.Log("Hey");

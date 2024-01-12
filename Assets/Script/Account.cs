@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Account : MonoBehaviour
 {
-    protected int accountId;
-    protected string accName;
-    protected string message;
-    protected List<Item> ownedList;
-    protected List<Money> wallet;
+    [SerializeField] protected int accountId;
+    [SerializeField] protected string accName;
+    [SerializeField] protected string message;
+    [SerializeField] protected List<Item> ownedList;
+    [SerializeField] protected List<Money> wallet;
 
     public int GetAccountID()
     {
@@ -42,7 +42,7 @@ public class Account : MonoBehaviour
 }
 
 
-public class Money : Object
+public class Money : System.Object
 {
     protected Currency currency;
     protected int amount;

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
+using System;
 
-public class Currency : Object
+[Serializable]
+public class Currency : System.Object
 {
     [SerializeField] public CurrencyScriptableObject currencyTemplate;
     public int currencyID;
-    private new string name;
+    private string name;
     private Sprite currencyIcon;
     private int maxCapa;
 
@@ -29,9 +31,21 @@ public class Currency : Object
     public Currency(CurrencyScriptableObject _currency)
     {
         name = _currency.currencyName;
-        currencyID = _currency.list.getCount() - 1;
+        currencyID = _currency.list.getCount();
         currencyIcon = _currency.currencyIcon;
         maxCapa = _currency.maxCapa;
+    }
+
+    public Currency()
+    {
+        name = "Dummy";
+        maxCapa = 9999;
+    }
+
+    [ContextMenu("Project Exclusive/New Test Currency")]
+    public void CreateNewCurrency()
+    {
+        Debug.Log("Hey");
     }
 
     public string GetName()
@@ -60,9 +74,9 @@ public class Currency : Object
 [CreateAssetMenu(fileName = "NewCurrency", menuName = "Project Exclusive/Currency/New Currency")]
 public class CurrencyScriptableObject : ScriptableObject
 {
-    public string currencyName;
+    public string currencyName = "Dummy";
     public Sprite currencyIcon;
-    public int maxCapa;
+    public int maxCapa = 9999;
     public CurrenciesList list;
     public string path;
 
@@ -90,7 +104,8 @@ public class CurrencyEditor : Editor
 
         if (currency.list == null) return;
 
-        if (currency.list.getCount() != 0 && currency.list.FindCurrency(currency.name)) EditorGUILayout.LabelField("ID", "Added To List");
+        if (currency.list.getCount() != 0 && currency.list.FindCurrency(currency.name) != null) 
+            EditorGUILayout.LabelField("ID", currency.list.FindCurrency(currency.name).currencyID + " (Added)");
         else EditorGUILayout.LabelField("ID", (currency.list.getCount()) + "");
         currency.currencyName = EditorGUILayout.TextField("Name", currency.currencyName);
         currency.maxCapa = EditorGUILayout.IntField("Max Capacity", currency.maxCapa);
@@ -107,18 +122,28 @@ public class CurrencyEditor : Editor
         }
         EditorGUILayout.EndHorizontal();
 
-        if (GUILayout.Button("Add Currency To List")) AddCurrency();
-
+        if (currency.list.FindCurrency(currency.name) != null)
+        {
+            if (GUILayout.Button("Edit Currency"))
+                EditCurrency(currency.list.FindCurrency(currency.name).currencyID);
+        }
+        else {
+            if (GUILayout.Button("Add Currency To List"))
+                AddCurrency();
+        }
         EditorUtility.SetDirty(currency);
-
-
     }
     private void AddCurrency()
     {
-        //this line is null
-        Currency _c = new Currency(currency.name, (currency.list.getCount()), currency.maxCapa, currency.currencyIcon);
-        AssetDatabase.AddObjectToAsset(_c, currency.path);
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
+        Currency _c = new Currency(currency);
+        currency.list.AddCurrency(_c);
+        Debug.Log("Object created: " + _c + ". Type: " + _c.GetType());
+    }
+
+    private void EditCurrency(int _id)
+    {
+        currency.list.FindCurrency(_id).Edit(currency);
+        Currency _c = currency.list.FindCurrency(_id);
+        Debug.Log("Object edit at: " + _id + ". Now: " + _c);
     }
 }

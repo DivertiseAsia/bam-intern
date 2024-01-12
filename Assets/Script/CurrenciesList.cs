@@ -31,6 +31,15 @@ public class CurrenciesList : MonoBehaviour
         return currencyList.Find(_c => _c.currencyID == id);
     }
 
+    public bool CheckInList(string currencyName)
+    {
+        return FindCurrency(name) != null;
+    }
+    public bool CheckInList(int id)
+    {
+        return FindCurrency(id) != null;
+    }
+
     public void RemoveCurrency(string currencyName)
     {
         //if (currencyList.IsNull)
@@ -61,10 +70,16 @@ public class CurrenciesListEditor : Editor
     {
         var list = currenciesList.currencyList;
         int newCount = Mathf.Max(0, EditorGUILayout.IntField("size", list.Count));
+        EditorGUILayout.BeginFadeGroup(1);
         for (int i = 0; i < list.Count; i++)
         {
-            list[i] = (Currency)EditorGUILayout.ObjectField(list[i], typeof(Currency), false);
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PrefixLabel(list[i].currencyID + "", GUIStyle.none);
+            EditorGUILayout.LabelField("", list[i].GetName());
+            if (GUILayout.Button("Delete", GUILayout.Width(49f))) currenciesList.RemoveCurrency(list[i].currencyID);
+            EditorGUILayout.EndHorizontal();
         }
+        EditorGUILayout.EndFadeGroup();
 
         if (GUILayout.Button("Hard Reset List")) currenciesList.HardResetList();
     }

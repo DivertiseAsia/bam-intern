@@ -44,4 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a497cc5b9655be4991fd65fb74c8368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyList: []
+  currencyList:
+  - currencyTemplate: {fileID: 0}
+    currencyID: 0
+    name: A
+    currencyIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    maxCapa: 9999
+  - currencyTemplate: {fileID: 0}
+    currencyID: 1
+    name: B
+    currencyIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    maxCapa: 9999

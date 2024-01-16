@@ -20,11 +20,12 @@ public class Limitedbanner : Banner
     }
     private new void Update()
     {
+        /*
         textInfo.text = "Count: " + count + "\n" +
             "R: " + rareCount + "\n" +
             "SR: " + epicCount + "\n" +
             "SSR: " + legendaryCount;
-
+        */
         CheckGuarantee();
         CheckBannerEnd();
     }

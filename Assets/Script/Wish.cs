@@ -5,21 +5,31 @@ using UnityEngine.UI;
 
 public class Wish : MonoBehaviour
 {
-    [SerializeField] Color common = Color.gray;
-    [SerializeField] Color rare = Color.green;
     float rareRate = 0.2f;
-    [SerializeField] Color Epic = Color.cyan;
-    float EpicRate = 0.15f;
-    [SerializeField] Color legendary = Color.yellow;
+    float epicRate = 0.15f;
     float legendaryRate = 0.05f;
 
     [SerializeField] Banner banner;
     [SerializeField] int SetCount = 10;
 
-    [SerializeField] Image displayImage;
-    [SerializeField] int spendingCurrencyPerWish;
+    //[SerializeField] Image displayImage;
+    [SerializeField] int spendingCurrencyPerWish = 3;
 
-    Image display => GetComponent<Image>();
+    //Image display => GetComponent<Image>();
+
+    private void Start()
+    {
+    }
+
+    private void CheckItemRarity()
+    {
+        if (!banner.itemListInBanner.Find(_i => (int)_i.GetRarity() == (int)Rarity.rare))
+            rareRate = 0;
+        if (!banner.itemListInBanner.Find(_i => (int)_i.GetRarity() == (int)Rarity.epic))
+            epicRate = 0;
+        if (!banner.itemListInBanner.Find(_i => (int)_i.GetRarity() == (int)Rarity.legendary))
+            epicRate = 0;
+    }
 
     public int GetSpendingPerWish()
     {
@@ -32,62 +42,59 @@ public class Wish : MonoBehaviour
 
     public void Roll()
     {
+        CheckItemRarity();
         float number = Random.value;
-        checkRate(number);
+        WishReport.self.resultItem.Add(checkRate(number));
     }
 
 
     public void RollSet()
     {
-        StartCoroutine(PauseforaFrame());
-    }
-
-    IEnumerator PauseforaFrame ()
-    {
         for (int i = 0; i < SetCount; i++)
         {
             Roll();
-            yield return new WaitForSeconds(0.1f);
         }
     }
 
-    void checkRate(float number)
+    Item checkRate(float number)
     {
         if (banner.guaranteeFlag) {
-            GetLegendary();
-            return;
+            return GetLegendary();;
         }
 
-        if (number > rareRate) GetCommon();
-        else if (number > EpicRate) GetRare();
-        else if (number > legendaryRate) GetEpic();
-        else GetLegendary();
-
-        banner.AddCount();
+        if (number > rareRate) return GetCommon();
+        else if (number > epicRate) return GetRare();
+        else if (number > legendaryRate) return GetEpic();
+        else return GetLegendary();
     }
 
-    void GetLegendary()
+    Item GetLegendary()
     {
-        display.color = legendary;
-        DrawFromList(banner.legendaryList);
+        //display.color = legendary;
         banner.AddLegendary();
+        Debug.Log("Get Legendary");
+        return DrawFromList(banner.legendaryList);
     }
-    void GetEpic()
+
+    Item GetEpic()
     {
-        display.color = Epic;
-        DrawFromList(banner.epicList);
-        banner.AddEpic();
+        banner.AddCount();
+        //display.color = Epic;
+        return DrawFromList(banner.epicList);
+        //banner.AddEpic();
     }
-    void GetRare()
+    Item GetRare()
     {
-        display.color = rare;
-        DrawFromList(banner.rareList);
-        banner.AddRare();
+        banner.AddCount();
+        //display.color = rare;
+        return DrawFromList(banner.rareList);
+        //banner.AddRare();
     }
-    void GetCommon()
+    Item GetCommon()
     {
-        display.color = common;
-        DrawFromList(banner.commonList);
+        banner.AddCount();
+        //display.color = common;
+        return DrawFromList(banner.commonList);
     }
 
     Item DrawFromList(List<Item> itemList)
@@ -99,12 +106,12 @@ public class Wish : MonoBehaviour
             if (Random.value < banner.GetComponent<Limitedbanner>().rateUpRate) item = DrawRateUp(itemList[0].GetRarity());
             if (item != null)
             {
-                DisplayItem(item);
+                //DisplayItem(item);
                 return item;
             }
         }
         int _n = Random.Range(0, itemList.Count);
-        DisplayItem(itemList[_n]);
+        //DisplayItem(itemList[_n]);
         return itemList[_n];
     }
 
@@ -119,16 +126,20 @@ public class Wish : MonoBehaviour
         return null;
     }
 
+    bool CheckLimitedBanner()
+    {
+        if (banner.GetComponent<Limitedbanner>()) return true;
+        return false;
+    }
+
+    #region Legacy
+    /*
     void DisplayItem(Item item)
     {
         displayImage.sprite = item.GetItemIcon();
         displayImage.SetNativeSize();
         displayImage.rectTransform.localScale = Vector3.one * 0.25f;
     }
-
-    bool CheckLimitedBanner()
-    {
-        if (banner.GetComponent<Limitedbanner>()) return true;
-        return false;
-    }
+    */
+    #endregion
 }

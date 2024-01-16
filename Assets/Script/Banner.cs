@@ -6,7 +6,7 @@ using TMPro;
 
 public class Banner : MonoBehaviour
 {
-    protected TextMeshProUGUI textInfo => GetComponent<TextMeshProUGUI>();
+    //protected TextMeshProUGUI textInfo => GetComponent<TextMeshProUGUI>();
     int guaranteeCount = 50;
 
     protected int count = 0;
@@ -16,7 +16,7 @@ public class Banner : MonoBehaviour
 
     public bool guaranteeFlag = false;
 
-    protected List<Item> itemListInBanner;
+    [HideInInspector] public List<Item> itemListInBanner;
 
     [HideInInspector] public List<Item> commonList = new List<Item>();
     [HideInInspector] public List<Item> rareList = new List<Item>();
@@ -30,11 +30,12 @@ public class Banner : MonoBehaviour
     }
     protected void Update()
     {
+        /*
         textInfo.text = "Count: " + count + "\n" +
             "R: " + rareCount + "\n" +
             "SR: " + epicCount + "\n" +
             "SSR: " + legendaryCount;
-
+        */
         CheckGuarantee();
     }
 

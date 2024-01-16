@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Account : MonoBehaviour
 {
+    private static Account self;
     [SerializeField] protected int accountId;
     [SerializeField] protected string accName;
     [SerializeField] protected string message;
-    [SerializeField] protected List<Item> ownedList = new List<Item>();
     [SerializeField] protected List<Money> wallet = new List<Money>();
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+
+        if (self == null) self = this;
+        else Destroy(gameObject);
+    }
     public int GetAccountID()
     {
         return accountId;
@@ -36,21 +43,37 @@ public class Account : MonoBehaviour
 
     public void Spend(string currencyName, int amount)
     {
+        if (wallet.Count == 0) Debug.Log("Wallet is Empty");
         Money m = wallet.Find(_m => _m.GetCurrencyName() == currencyName);
         m.Spend(amount);
     }
 
     public int GetMoney(string currencyName)
     {
+        if (wallet.Count == 0)
+        {
+            Debug.Log("Wallet is Empty");
+            return 0;
+        }
         return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName)).GetAmount();
     }
 
     public Money FindCurrencyInWallet(string currencyName)
     {
+        if (wallet.Count == 0)
+        {
+            Debug.Log("Wallet is Empty");
+            return null;
+        }
         return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName));
     }
     public Money FindCurrencyInWallet(int currencyId)
     {
+        if (wallet.Count == 0)
+        {
+            Debug.Log("Wallet is Empty");
+            return null;
+        }
         return wallet.Find(_m => _m.GetCurrencyID() == currencyId);
     }
 }

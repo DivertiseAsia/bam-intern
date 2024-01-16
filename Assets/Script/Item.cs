@@ -41,6 +41,11 @@ public class Item : MonoBehaviour
         return itemTemplate.itemIcon;
     }
 
+    public ItemTemplateScriptableObject GetTemplate()
+    {
+        return itemTemplate;
+    }
+
     [ExecuteInEditMode]
 
     public void Start()

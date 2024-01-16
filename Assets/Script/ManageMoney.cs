@@ -9,7 +9,12 @@ public class ManageMoney : MonoBehaviour
     [SerializeField] string currencyName;
     [SerializeField] int amount;
     [SerializeField] Wish wish;
+    [SerializeField] public bool nextScene;
 
+    private void Start()
+    {
+        targetAcc = FindObjectOfType<Account>();
+    }
     public void TopUp()
     {
         if (targetAcc.FindCurrencyInWallet(currencyName) != null)
@@ -52,8 +57,6 @@ public class ManageMoney : MonoBehaviour
         {
             Debug.Log("Cannot find money with this Currency");
         }
-
-        Debug.Log("Money in the account: " + targetAcc.GetMoney(currencyName) + currencyName);
     }
 
     public void Spend(int _amount)
@@ -78,8 +81,6 @@ public class ManageMoney : MonoBehaviour
         {
             Debug.Log("Cannot find money with this Currency");
         }
-
-        Debug.Log("Money in the account: " + targetAcc.GetMoney(currencyName) + currencyName);
     }
 
     public void Roll()
@@ -91,6 +92,7 @@ public class ManageMoney : MonoBehaviour
         }
         Spend();
         wish.Roll();
+        nextScene = true;
     }
     public void RollSet()
     {
@@ -101,6 +103,7 @@ public class ManageMoney : MonoBehaviour
         }
         Spend();
         wish.RollSet();
+        nextScene = true;
     }
 
 }

@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
 using System;
+using System.IO;
 
 [Serializable]
 public class Currency : System.Object
 {
     [SerializeField] public CurrencyScriptableObject currencyTemplate;
     public int currencyID;
-    private string name;
-    private Sprite currencyIcon;
-    private int maxCapa;
+    public string name;
+    public Sprite currencyIcon;
+    public int maxCapa;
 
     public Currency(string _name, int _id, int _maxCapa, Sprite _icon)
     {
@@ -40,6 +39,7 @@ public class Currency : System.Object
     {
         name = "Dummy";
         maxCapa = 9999;
+        Debug.LogWarning("Object Resetted");
     }
 
     //[ContextMenu("Project Exclusive/New Test Currency")]
@@ -69,6 +69,11 @@ public class Currency : System.Object
         name = c.currencyName;
         currencyIcon = c.currencyIcon;
         maxCapa = c.maxCapa;
+    }
+
+    public string ExportToJSON()
+    {
+        return JsonUtility.ToJson(this, true);
     }
 }
 
@@ -138,6 +143,9 @@ public class CurrencyEditor : Editor
     {
         Currency _c = new Currency(currency);
         currency.list.AddCurrency(_c);
+        File.WriteAllText(currency.path + "/" + currency.currencyName + ".JSON", _c.ExportToJSON());
+        PrefabUtility.RecordPrefabInstancePropertyModifications(currency.list);
+        EditorUtility.SetDirty(currency.list);
         Debug.Log("Object created: " + _c + ". Type: " + _c.GetType());
     }
 
@@ -145,6 +153,8 @@ public class CurrencyEditor : Editor
     {
         currency.list.FindCurrency(_id).Edit(currency);
         Currency _c = currency.list.FindCurrency(_id);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(currency.list);
+        EditorUtility.SetDirty(currency.list);
         Debug.Log("Object edit at: " + _id + ". Now: " + _c);
     }
 }

@@ -7,7 +7,7 @@ using TMPro;
 public class Banner : MonoBehaviour
 {
     //protected TextMeshProUGUI textInfo => GetComponent<TextMeshProUGUI>();
-    int guaranteeCount = 50;
+    [SerializeField] int guaranteeCount = 50;
 
     protected int count = 0;
     protected int rareCount = 0;

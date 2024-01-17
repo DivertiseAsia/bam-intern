@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEquip : MonoBehaviour
 {
-    [SerializeField] Head HeadEquip;
-    [SerializeField] Body BodyEquip;
-    [SerializeField] Weapon WeaponEquip;
+    [SerializeField] public Head headEquip;
+    [SerializeField] public Body bodyEquip;
+    [SerializeField] public Weapon weaponEquip;
 }

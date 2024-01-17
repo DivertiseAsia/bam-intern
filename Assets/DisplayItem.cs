@@ -33,7 +33,6 @@ public class DisplayItem : MonoBehaviour
             template = item.GetTemplate();
 
             icon.sprite = template.itemIcon;
-            icon.SetNativeSize();
             itemName.text = template.name;
             itemDescription.text = template.description;
 

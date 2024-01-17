@@ -52,7 +52,6 @@ public class Account : MonoBehaviour
     {
         if (wallet.Count == 0)
         {
-            Debug.Log("Wallet is Empty");
             return 0;
         }
         return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName)).GetAmount();
@@ -62,7 +61,6 @@ public class Account : MonoBehaviour
     {
         if (wallet.Count == 0)
         {
-            Debug.Log("Wallet is Empty");
             return null;
         }
         return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName));

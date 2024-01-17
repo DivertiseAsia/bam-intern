@@ -731,6 +731,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417714786}
   m_CullTransparentMesh: 1
+--- !u!1 &462168979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 462168983}
+  - component: {fileID: 462168982}
+  - component: {fileID: 462168981}
+  - component: {fileID: 462168980}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &462168980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462168979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9501f134de96ae4cb0f182558237d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeadEquip: {fileID: 0}
+  BodyEquip: {fileID: 0}
+  WeaponEquip: {fileID: 0}
+--- !u!114 &462168981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462168979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6addf02f4c48d44b3bed7a47a3e8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownedItem: []
+--- !u!114 &462168982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462168979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a05dc2ae77afa4d86fdcdcf71a010a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accountId: 0
+  accName: Raliciel
+  message: AYYYYYYYYYYYYYYYYYYYYYY
+--- !u!4 &462168983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462168979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 362.33884, y: 225.0504, z: -5.411941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &526768549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2172,7 @@ MonoBehaviour:
   currencyName: B
   amount: 10
   wish: {fileID: 0}
+  nextScene: 0
 --- !u!1 &2000706761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,3 +2532,4 @@ MonoBehaviour:
   currencyName: A
   amount: 10
   wish: {fileID: 0}
+  nextScene: 0

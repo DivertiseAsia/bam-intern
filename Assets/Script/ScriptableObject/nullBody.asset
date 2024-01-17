@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5e6122a0b114a4db8880933e5486fe, type: 3}
-  m_Name: Changgong
+  m_Name: nullBody
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 9eafe68b221ec2845a95ec8b18a0cb9f, type: 3}
-  name: Gao
+  itemIcon: {fileID: 0}
+  name: ItemName
   description: 
-  rarity: 2
+  rarity: 4
   itemType: 1
-  atkPoint: 24
+  atkPoint: 0

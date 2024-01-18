@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DisplayPlayerEquip : MonoBehaviour, IDropHandler
+public class DisplayPlayerEquip : MonoBehaviour,  IDropHandler
 {
     PlayerEquip playerEquip => FindObjectOfType<PlayerEquip>();
     [SerializeField] ItemThumbnail headThumbnail;
@@ -20,6 +20,21 @@ public class DisplayPlayerEquip : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        ItemThumbnail dragged = eventData.pointerDrag.GetComponent<ItemThumbnail>();
+
+        if ((int)dragged.itemTemplate.itemType == (int)ItemType.head)
+        {
+            playerEquip.SetHead(dragged.itemTemplate.itemRef.GetComponent<Head>());
+        }
+
+        else if ((int)dragged.itemTemplate.itemType == (int)ItemType.body)
+        {
+            playerEquip.SetBody(dragged.itemTemplate.itemRef.GetComponent<Body>());
+        }
+
+        else if ((int)dragged.itemTemplate.itemType == (int)ItemType.weapon)
+        {
+            playerEquip.SetWeapon(dragged.itemTemplate.itemRef.GetComponent<Weapon>());
+        }
     }
 }

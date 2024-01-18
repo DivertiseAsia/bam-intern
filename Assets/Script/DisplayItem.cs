@@ -29,13 +29,13 @@ public class DisplayItem : MonoBehaviour
         yield return new WaitForSeconds(1);
         foreach (Item item in report.resultItem)
         {
-            template = item.GetTemplate();
 
-            icon.sprite = template.itemIcon;
-            itemName.text = template.name;
-            itemDescription.text = template.description;
+            icon.sprite = item.GetTemplate().itemIcon;
+            itemName.text = item.GetTemplate().name;
+            itemDescription.text = item.GetTemplate().description;
+            Debug.Log(item.GetTemplate().rarity);
 
-            switch ((int)template.itemType)
+            switch ((int)item.GetTemplate().rarity)
             {
                 case (int)Rarity.legendary:
                     rarityDisplay.sprite = RarityScript.legendaryStar;
@@ -58,16 +58,12 @@ public class DisplayItem : MonoBehaviour
             animator.Play("ItemIn");
 
             yield return new WaitForSeconds(2);
-            if (Input.GetMouseButton(1))
+            if (Input.anyKey)
             {
-                continue;
+                break;
             }
             animator.Play("ItemOut");
             yield return new WaitForSeconds(1);
-            if (Input.GetMouseButton(1))
-            {
-                continue;
-            }
         }
 
         gameObject.transform.position = Vector2.up * 500;

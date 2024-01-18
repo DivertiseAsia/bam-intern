@@ -37,7 +37,7 @@ public class ItemThumbnail : MonoBehaviour
 
     private void DisplayRarity(Rarity rarity)
     {
-        rarityDisplay.enabled = true;
+        rarityDisplay.gameObject.SetActive(true);
         switch ((int)rarity)
         {
             case (int)Rarity.legendary:
@@ -58,7 +58,7 @@ public class ItemThumbnail : MonoBehaviour
                 break;
             default:
                 thumbImage.enabled = false;
-                rarityDisplay.enabled = false;
+                rarityDisplay.gameObject.SetActive(false);
                 postItBg.color = Color.white;
                 break;
         }

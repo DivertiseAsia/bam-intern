@@ -63,7 +63,7 @@ public class DisplayItem : MonoBehaviour
                 break;
             }
             animator.Play("ItemOut");
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.8f);
         }
 
         gameObject.transform.position = Vector2.up * 500;

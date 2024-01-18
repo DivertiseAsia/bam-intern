@@ -17,4 +17,5 @@ MonoBehaviour:
   description: The most toxic
   rarity: 3
   itemType: 0
+  itemRef: {fileID: 4876614519978404553, guid: c0334e1764629aa468120e58d2a8af94, type: 3}
   defPoint: 100

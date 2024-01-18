@@ -17,3 +17,4 @@ MonoBehaviour:
   description: 
   rarity: 4
   itemType: 2
+  itemRef: {fileID: 4876614519978404553, guid: 6c90eedc58773204da85fd1d6da79424, type: 3}

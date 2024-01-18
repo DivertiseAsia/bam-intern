@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: nullBody
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
-  name: ItemName
+  name: None
   description: 
   rarity: 4
   itemType: 1
+  itemRef: {fileID: 4876614519978404553, guid: 55df2ff057880bb4088a7ef322775340, type: 3}
   atkPoint: 0

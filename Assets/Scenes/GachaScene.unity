@@ -157,6 +157,9 @@ MonoBehaviour:
   accountId: 0
   accName: Raliciel
   message: AYYYYYYYYYYYYYYYYYYYYYY
+  wallet:
+    money: []
+  savePlayerData: {fileID: 11400000, guid: 26acd973e781ec345b9e360b28c869fb, type: 2}
 --- !u!4 &9965554
 Transform:
   m_ObjectHideFlags: 0
@@ -3095,7 +3098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _permanentItemList:
-  - {fileID: 7796720262855966598, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
   - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
   - {fileID: 2356602161244466628, guid: c0334e1764629aa468120e58d2a8af94, type: 3}
   - {fileID: -1122395206313996937, guid: 07d34150a7730a549afef1acbd81cc38, type: 3}

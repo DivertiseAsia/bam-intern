@@ -9,10 +9,8 @@ public class Banner : MonoBehaviour
     //protected TextMeshProUGUI textInfo => GetComponent<TextMeshProUGUI>();
     [SerializeField] int guaranteeCount = 50;
 
-    protected static int count = 0;
-    protected static int rareCount = 0;
-    protected static int epicCount = 0;
-    protected static int legendaryCount = 0;
+    protected int count = 0;
+    protected int legendaryCount = 0;
 
     public bool guaranteeFlag = false;
 
@@ -53,8 +51,6 @@ public class Banner : MonoBehaviour
     }
 
     public void AddCount() { count += 1; }
-    public void AddRare() { rareCount += 1; }
-    public void AddEpic() { epicCount += 1; }
     public void AddLegendary() { legendaryCount += 1; count = 0; }
 
     protected void CheckGuarantee()

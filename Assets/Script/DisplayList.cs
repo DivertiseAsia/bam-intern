@@ -15,7 +15,6 @@ public class DisplayList : MonoBehaviour
     [SerializeField] List<Item> toList;
     [SerializeField] TakeFrom takefrom = TakeFrom.account;
     [SerializeField] GameObject warnLabel;
-    int row;
     int column;
 
     public void Start()
@@ -46,7 +45,6 @@ public class DisplayList : MonoBehaviour
 
     private void listItem(List<Item> toList)
     {
-        row = 0;
         column = (int)(transform.GetComponent<RectTransform>().rect.x / thumbnailTemplate.transform.GetComponent<RectTransform>().rect.x);
         if (column == 0)
         {
@@ -61,5 +59,10 @@ public class DisplayList : MonoBehaviour
             itemThumbnail.transform.position += Vector3.up * ((int)(i / column * itemThumbnail.GetComponent<RectTransform>().rect.y) * 2);
             itemThumbnail.SetActive(true);
         }
+    }
+
+    public bool IsNotEmpty()
+    {
+        return toList.Count != 0;
     }
 }

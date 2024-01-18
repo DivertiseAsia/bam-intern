@@ -12,12 +12,9 @@ public class DisplayItem : MonoBehaviour
     [SerializeField] TMP_Text itemName;
     [SerializeField] TMP_Text itemDescription;
     [SerializeField] Image background;
+    [SerializeField] Image rarityDisplay;
 
-    [Header("Set Color")]
-    [SerializeField] Color common = Color.gray;
-    [SerializeField] Color rare = Color.magenta;
-    [SerializeField] Color epic = Color.green;
-    [SerializeField] Color legendary = Color.yellow;
+    Animator animator => GetComponent<Animator>();
 
     SceneManagerScript manager => GetComponent<SceneManagerScript>();
     void Awake()
@@ -28,6 +25,8 @@ public class DisplayItem : MonoBehaviour
 
     IEnumerator ShowItem()
     {
+        animator.Play("ListComeIn");
+        yield return new WaitForSeconds(1);
         foreach (Item item in report.resultItem)
         {
             template = item.GetTemplate();
@@ -39,23 +38,39 @@ public class DisplayItem : MonoBehaviour
             switch ((int)template.itemType)
             {
                 case (int)Rarity.legendary:
-                    background.color = legendary;
+                    rarityDisplay.sprite = RarityScript.legendaryStar;
+                    background.color = RarityScript.legendaryColor;
                     break;
                 case (int)Rarity.epic:
-                    background.color = epic;
+                    rarityDisplay.sprite = RarityScript.epicStar;
+                    background.color = RarityScript.epicColor;
                     break;
                 case (int)Rarity.rare:
-                    background.color = rare;
+                    rarityDisplay.sprite = RarityScript.rareStar;
+                    background.color = RarityScript.rareColor;
                     break;
                 default:
-                    background.color = common;
+                    rarityDisplay.sprite = RarityScript.commonStar;
+                    background.color = RarityScript.commonColor;
                     break;
             }
 
+            animator.Play("ItemIn");
+
             yield return new WaitForSeconds(2);
+            if (Input.GetMouseButton(1))
+            {
+                continue;
+            }
+            animator.Play("ItemOut");
+            yield return new WaitForSeconds(1);
+            if (Input.GetMouseButton(1))
+            {
+                continue;
+            }
         }
 
-        yield return new WaitForSeconds(1);
+        gameObject.transform.position = Vector2.up * 500;
         manager.TransverseScene();
     }
 }

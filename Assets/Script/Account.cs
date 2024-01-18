@@ -50,10 +50,8 @@ public class Account : MonoBehaviour
 
     public int GetMoney(string currencyName)
     {
-        if (wallet.Count == 0)
-        {
-            return 0;
-        }
+        if (wallet.Count == 0) return 0;
+        if (FindCurrencyInWallet(currencyName) == null) return 0;
         return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName)).GetAmount();
     }
 

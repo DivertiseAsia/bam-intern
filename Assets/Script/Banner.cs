@@ -9,10 +9,10 @@ public class Banner : MonoBehaviour
     //protected TextMeshProUGUI textInfo => GetComponent<TextMeshProUGUI>();
     [SerializeField] int guaranteeCount = 50;
 
-    protected int count = 0;
-    protected int rareCount = 0;
-    protected int epicCount = 0;
-    protected int legendaryCount = 0;
+    protected static int count = 0;
+    protected static int rareCount = 0;
+    protected static int epicCount = 0;
+    protected static int legendaryCount = 0;
 
     public bool guaranteeFlag = false;
 
@@ -22,6 +22,8 @@ public class Banner : MonoBehaviour
     [HideInInspector] public List<Item> rareList = new List<Item>();
     [HideInInspector] public List<Item> epicList = new List<Item>();
     [HideInInspector] public List<Item> legendaryList = new List<Item>();
+
+    [SerializeField] protected TMP_Text GuaranteeText;
 
     protected void Start()
     {
@@ -57,6 +59,7 @@ public class Banner : MonoBehaviour
 
     protected void CheckGuarantee()
     {
+        GuaranteeText.text = "Roll " + (guaranteeCount - count) + " more item(s) to guarantee SSR item.";
         if (count < guaranteeCount)
         {
             guaranteeFlag = false;

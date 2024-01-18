@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1e6cf1248d9d1f24f94e560d61f75e32
+guid: 6d5096fd9552ec443ab4d5bd958d7936
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,112 +139,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Thumbnail_0
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 522
-        width: 297
-        height: 132
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aecd60be91f30384d93aea70d0be4ad4
-      internalID: -2145481929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thumbnail_1
-      rect:
-        serializedVersion: 2
-        x: 455
-        y: 88
-        width: 566
-        height: 585
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a198737f86f4a844bd5b8dad7079751
-      internalID: -210428399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thumbnail_2
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 386
-        width: 297
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d136274e744a484ca92b1de798431aa
-      internalID: -1721487918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thumbnail_3
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 246
-        width: 297
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 063066171fcdb904a9b108a43c2b921b
-      internalID: -1338402728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Thumbnail_4
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 106
-        width: 297
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eaab5a4e6d239d14bba640abb9789b0f
-      internalID: -1521070236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -255,12 +150,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Thumbnail_0: -2145481929
-      Thumbnail_1: -210428399
-      Thumbnail_2: -1721487918
-      Thumbnail_3: -1338402728
-      Thumbnail_4: -1521070236
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

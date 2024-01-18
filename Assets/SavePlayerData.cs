@@ -15,6 +15,8 @@ public class SavePlayerData : ScriptableObject
     public Body playerBodyEquip;
     public Weapon playerWeaponEquip;
 
+    public string countOnBanner;
+
     public SavePlayerData()
     {
         accountId = 0;
@@ -22,5 +24,6 @@ public class SavePlayerData : ScriptableObject
         message = "";
         wallet = JsonUtility.ToJson(new Wallet());
         owned = new List<Item>();
-}
+        countOnBanner = JsonUtility.ToJson(new CountList());
+    }
 }

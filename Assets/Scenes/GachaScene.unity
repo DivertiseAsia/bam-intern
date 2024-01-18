@@ -3300,6 +3300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99399da9d9894240b661dcec86d97ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerId: 0
   guaranteeCount: 50
   guaranteeFlag: 0
   itemListInBanner: []
@@ -4303,6 +4304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589844cd3d55f474188be9d7e6e67c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerId: 1
   guaranteeCount: 15
   guaranteeFlag: 0
   itemListInBanner: []

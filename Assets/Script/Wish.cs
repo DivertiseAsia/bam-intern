@@ -71,7 +71,7 @@ public class Wish : MonoBehaviour
     Item GetLegendary()
     {
         //display.color = legendary;
-        banner.AddLegendary();
+        banner.ResetCount();
         Debug.Log("Get Legendary");
         return DrawFromList(banner.legendaryList);
     }

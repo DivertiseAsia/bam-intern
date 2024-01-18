@@ -15,6 +15,7 @@ public class Account : MonoBehaviour
 
     OwnedItemList owned => GetComponent<OwnedItemList>();
     PlayerEquip playerEquip => GetComponent<PlayerEquip>();
+    CountList countList = new CountList();
 
     private void Start()
     {
@@ -47,6 +48,8 @@ public class Account : MonoBehaviour
         savePlayerData.playerHeadEquip = playerEquip.headEquip;
         savePlayerData.playerBodyEquip = playerEquip.bodyEquip;
         savePlayerData.playerWeaponEquip = playerEquip.weaponEquip;
+
+        savePlayerData.countOnBanner = JsonUtility.ToJson(countList);
     }
 
     public void LoadSave()
@@ -60,6 +63,25 @@ public class Account : MonoBehaviour
         playerEquip.SetHead(savePlayerData.playerHeadEquip);
         playerEquip.SetBody(savePlayerData.playerBodyEquip);
         playerEquip.SetWeapon(savePlayerData.playerWeaponEquip);
+        countList = JsonUtility.FromJson<CountList>(savePlayerData.countOnBanner);
+    }
+
+    private static bool keyUnholded = true;
+    public void SaveGuarantee(int bannerId, int _count)
+    {
+        if (!keyUnholded) return;
+        keyUnholded = false;
+        if (countList.countList.Count == 0) countList.countList.Add(new CountOnBanner(bannerId, _count));
+        if (countList.countList.Find(count => count.bannerId == bannerId) == null) countList.countList.Add(new CountOnBanner(bannerId, _count));
+        countList.countList.Find(count => count.bannerId == bannerId).count = _count;
+        keyUnholded = true;
+    }
+
+    public int GetGuarantee(int bannerID)
+    {
+        if (countList.countList.Count == 0) return 0;
+        if (countList.countList.Find(count => count.bannerId == bannerID) == null) return 0;
+        return countList.countList.Find(count => count.bannerId == bannerID).count;
     }
 
     public int GetAccountID()

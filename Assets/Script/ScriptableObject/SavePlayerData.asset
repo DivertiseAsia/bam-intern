@@ -15,8 +15,17 @@ MonoBehaviour:
   accountId: 0
   accName: Player0
   message: 
-  wallet: '{"money":[]}'
-  owned: []
-  playerHeadEquip: {fileID: 0}
-  playerBodyEquip: {fileID: 0}
-  playerWeaponEquip: {fileID: 0}
+  wallet: '{"money":[{"currency":{"currencyTemplate":{"instanceID":0},"currencyID":0,"name":"A","currencyIcon":{"instanceID":716},"maxCapa":9999},"amount":0}]}'
+  owned:
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  playerHeadEquip: {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  playerBodyEquip: {fileID: -5275112227015520366, guid: 55df2ff057880bb4088a7ef322775340, type: 3}
+  playerWeaponEquip: {fileID: 2985793320229995209, guid: 6c90eedc58773204da85fd1d6da79424, type: 3}
+  countOnBanner: '{"countList":[{"bannerId":0,"count":4}]}'

@@ -15,10 +15,14 @@ public class Wish : MonoBehaviour
     //[SerializeField] Image displayImage;
     [SerializeField] int spendingCurrencyPerWish = 3;
 
+    Button button => GetComponent<Button>();
+
     //Image display => GetComponent<Image>();
 
-    private void Start()
+    public void CheckMoney(int amount, int rolltime)
     {
+        if (amount < spendingCurrencyPerWish * rolltime) button.interactable = false;
+        else button.interactable = true;
     }
 
     private void CheckItemRarity()

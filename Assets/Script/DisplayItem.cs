@@ -15,6 +15,7 @@ public class DisplayItem : MonoBehaviour
     [SerializeField] Image rarityDisplay;
 
     Animator animator => GetComponent<Animator>();
+    string animationToPlay;
 
     SceneManagerScript manager => GetComponent<SceneManagerScript>();
     void Awake()
@@ -25,6 +26,7 @@ public class DisplayItem : MonoBehaviour
 
     IEnumerator ShowItem()
     {
+        animationToPlay = "ItemIn";
         animator.Play("ListComeIn");
         yield return new WaitForSeconds(1);
         foreach (Item item in report.resultItem)
@@ -38,6 +40,7 @@ public class DisplayItem : MonoBehaviour
             switch ((int)item.GetTemplate().rarity)
             {
                 case (int)Rarity.legendary:
+                    animationToPlay = "LegendaryItemIn";
                     rarityDisplay.sprite = RarityScript.legendaryStar;
                     background.color = RarityScript.legendaryColor;
                     break;
@@ -55,7 +58,7 @@ public class DisplayItem : MonoBehaviour
                     break;
             }
 
-            animator.Play("ItemIn");
+            animator.Play(animationToPlay);
 
             yield return new WaitForSeconds(2);
             if (Input.anyKey)

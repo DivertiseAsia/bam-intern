@@ -63,7 +63,10 @@ public class Banner : MonoBehaviour
             keyUnholded = true;
         }
     }
-    public void ResetCount() { count = 0; }
+    public void ResetCount() {
+        count = 0;
+        account.SaveGuarantee(bannerId, count);
+    }
 
     protected void CheckGuarantee()
     {

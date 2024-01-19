@@ -5,48 +5,19 @@ using UnityEngine;
 public class ScaleWithList : MonoBehaviour
 {
     RectTransform rectTransform => GetComponent<RectTransform>();
-    ItemThumbnail[] icons;
-    bool unchange;
-    float yMax = 0;
-    float yMin = 0;
-    float yDefault = 0;
+    [SerializeField] RectTransform icon;
+    OwnedItemList ownedItem => FindObjectOfType<OwnedItemList>();
+    float iconHeight;
 
-    private void Start()
-    {
-        unchange = true;
-        yDefault = rectTransform.sizeDelta.y;
-    }
     void Update()
     {
-        if (unchange) CheckSize();
+        CheckSize();
     }
 
     void CheckSize()
     {
-        icons = GetComponentsInChildren<ItemThumbnail>();
-        foreach (ItemThumbnail icon in icons)
-        {
-            RegistY(icon.gameObject.GetComponent<RectTransform>());
-        }
+        iconHeight = icon.sizeDelta.y;
+        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, iconHeight * ownedItem.ownedItem.Count * 0.5f);
 
-        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, yMax - yMin);
-        if (rectTransform.sizeDelta.y > yDefault) 
-        { 
-            unchange = false; 
-        }
-    }
-
-    void RegistY(RectTransform icon)
-    {
-        if (yMax < icon.position.y + icon.rect.y * 0.5f)
-        {
-            yMax = icon.position.y + icon.rect.y * 0.5f;
-        }
-
-        if (yMin > icon.position.y - icon.rect.y * 0.5f)
-        {
-            
-            yMin = icon.position.y - icon.rect.y * 0.5f;
-        }
     }
 }

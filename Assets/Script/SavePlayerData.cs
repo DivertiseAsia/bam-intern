@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 
 [CreateAssetMenu(fileName = "SavePlayerData", menuName = "Project Exclusive/Player Data/Save")]

@@ -9,10 +9,13 @@ public class Limitedbanner : Banner
     [SerializeField] UDateTime endDate = System.DateTime.Now;
     [SerializeField] List<Item> notPermanentItemList;
     [SerializeField] public List<Item> rateUpItem;
+
+    [SerializeField] GameObject closeMark;
     public float rateUpRate = 0.7f;
 
     private new void Start()
     {
+        closeMark.SetActive(false);
         itemListInBanner = ItemListing.permanentItemList;
         AddMoreItemToList(itemListInBanner, notPermanentItemList);
         RemoveRateUpItem(itemListInBanner, rateUpItem);
@@ -56,6 +59,7 @@ public class Limitedbanner : Banner
 
     private void EndBanner()
     {
-        Destroy(gameObject);
+        closeMark.SetActive(true);
+        Destroy(this);
     }
 }

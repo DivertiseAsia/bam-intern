@@ -20,7 +20,7 @@ public enum ItemType
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] ItemTemplateScriptableObject itemTemplate;
+    public ItemTemplateScriptableObject itemTemplate;
 
     [SerializeField] private new string name = "ItemName";
     [SerializeField] private string description;

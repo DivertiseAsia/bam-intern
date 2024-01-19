@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac1704e3854ab44a96183d4b4c48b53, type: 3}
+  m_Name: Gun
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 2087a32d87ea66d4db9f4c5a491ec533, type: 3}
+  name: Gun
+  description: Wow
+  rarity: 0
+  itemType: 2
+  itemRef: {fileID: 3070143575586086576, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}

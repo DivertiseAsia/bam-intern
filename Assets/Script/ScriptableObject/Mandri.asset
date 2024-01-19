@@ -17,4 +17,5 @@ MonoBehaviour:
   description: 
   rarity: 0
   itemType: 1
+  itemRef: {fileID: 4876614519978404553, guid: 9d7b8ef9348e595408c76486a276e338, type: 3}
   atkPoint: 10

@@ -11,9 +11,16 @@ public class ManageMoney : MonoBehaviour
     [SerializeField] Wish wish;
     [SerializeField] public bool nextScene;
 
+    
+
     private void Start()
     {
         targetAcc = FindObjectOfType<Account>();
+    }
+
+    private void Update()
+    {
+        if (wish != null) wish.CheckMoney(targetAcc.GetMoney(currencyName), amount);
     }
     public void TopUp()
     {

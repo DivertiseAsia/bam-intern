@@ -7,7 +7,8 @@ public enum Rarity
     common,
     rare,
     epic,
-    legendary
+    legendary,
+    none
 }
 
 public enum ItemType
@@ -19,7 +20,7 @@ public enum ItemType
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] ItemTemplateScriptableObject itemTemplate;
+    public ItemTemplateScriptableObject itemTemplate;
 
     [SerializeField] private new string name = "ItemName";
     [SerializeField] private string description;
@@ -45,16 +46,20 @@ public class Item : MonoBehaviour
     {
         return itemTemplate;
     }
+    public void SetTemplate(ItemTemplateScriptableObject itemTemplate)
+    {
+        name = itemTemplate.name;
+        description = itemTemplate.description;
+        rarity = itemTemplate.rarity;
+        itemType = itemTemplate.itemType;
+        //sprite.sprite = itemTemplate.itemIcon;
+    }
 
     [ExecuteInEditMode]
 
     public void Start()
     {
         if (itemTemplate == null) return;
-        name = itemTemplate.name;
-        description = itemTemplate.description;
-        rarity = itemTemplate.rarity;
-        itemType = itemTemplate.itemType;
-        sprite.sprite = itemTemplate.itemIcon;
+        SetTemplate(itemTemplate);
     }
 }

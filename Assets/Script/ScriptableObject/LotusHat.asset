@@ -17,4 +17,5 @@ MonoBehaviour:
   description: 
   rarity: 2
   itemType: 0
+  itemRef: {fileID: 4876614519978404553, guid: 07d34150a7730a549afef1acbd81cc38, type: 3}
   defPoint: 50

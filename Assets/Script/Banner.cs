@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class Banner : MonoBehaviour
 {
+    public int bannerId;
     //protected TextMeshProUGUI textInfo => GetComponent<TextMeshProUGUI>();
-    int guaranteeCount = 50;
+    [SerializeField] int guaranteeCount = 50;
 
     protected int count = 0;
-    protected int rareCount = 0;
-    protected int epicCount = 0;
-    protected int legendaryCount = 0;
 
     public bool guaranteeFlag = false;
 
@@ -23,8 +22,13 @@ public class Banner : MonoBehaviour
     [HideInInspector] public List<Item> epicList = new List<Item>();
     [HideInInspector] public List<Item> legendaryList = new List<Item>();
 
+    [SerializeField] protected TMP_Text GuaranteeText;
+
+    Account account => FindObjectOfType<Account>();
+
     protected void Start()
     {
+        count = account.GetGuarantee(bannerId);
         itemListInBanner = ItemListing.permanentItemList;
         CreateListByRarity(itemListInBanner);
     }
@@ -49,14 +53,24 @@ public class Banner : MonoBehaviour
             else if (item.GetRarity() == (int)Rarity.legendary) legendaryList.Add(item);
         }
     }
-
-    public void AddCount() { count += 1; }
-    public void AddRare() { rareCount += 1; }
-    public void AddEpic() { epicCount += 1; }
-    public void AddLegendary() { legendaryCount += 1; count = 0; }
+    private static bool keyUnholded = true;
+    public void AddCount() {
+        if (keyUnholded)
+        {
+            keyUnholded = false;
+            count += 1;
+            account.SaveGuarantee(bannerId, count);
+            keyUnholded = true;
+        }
+    }
+    public void ResetCount() {
+        count = 0;
+        account.SaveGuarantee(bannerId, count);
+    }
 
     protected void CheckGuarantee()
     {
+        GuaranteeText.text = "Roll " + (guaranteeCount - count) + " more item(s) to guarantee SSR item.";
         if (count < guaranteeCount)
         {
             guaranteeFlag = false;
@@ -64,4 +78,22 @@ public class Banner : MonoBehaviour
         }
         guaranteeFlag = true;
     }
+}
+
+[Serializable]
+public class CountOnBanner
+{
+    public int bannerId;
+    public int count;
+
+    public CountOnBanner(int _bannerId, int _count)
+    {
+        bannerId = _bannerId;
+        count = _count;
+    }
+}
+
+[Serializable]
+public class CountList{
+    public List<CountOnBanner> countList;
 }

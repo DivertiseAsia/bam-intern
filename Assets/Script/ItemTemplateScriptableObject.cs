@@ -10,4 +10,5 @@ public class ItemTemplateScriptableObject : ScriptableObject
     public string description;
     public Rarity rarity = Rarity.common;
     public ItemType itemType;
+    public GameObject itemRef;
 }

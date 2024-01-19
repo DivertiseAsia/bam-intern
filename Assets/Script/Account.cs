@@ -1,14 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Account : MonoBehaviour
 {
     private static Account self;
     [SerializeField] protected int accountId;
     [SerializeField] protected string accName;
     [SerializeField] protected string message;
-    [SerializeField] protected List<Money> wallet = new List<Money>();
+    [SerializeField] protected Wallet wallet = new Wallet();
+    [SerializeField] SavePlayerData savePlayerData;
+
+    OwnedItemList owned => GetComponent<OwnedItemList>();
+    PlayerEquip playerEquip => GetComponent<PlayerEquip>();
+    CountList countList = new CountList();
 
     private void Start()
     {
@@ -16,7 +23,67 @@ public class Account : MonoBehaviour
 
         if (self == null) self = this;
         else Destroy(gameObject);
+
+        if (savePlayerData != null) LoadSave();
     }
+
+    private void OnApplicationQuit()
+    {
+        SaveData();
+    }
+
+    public void SaveData()
+    {
+        if (savePlayerData == null)
+        {
+            savePlayerData = ScriptableObject.CreateInstance<SavePlayerData>();
+        }
+
+        savePlayerData.accountId = accountId;
+        savePlayerData.accName = accName;
+        savePlayerData.message = message;
+        savePlayerData.wallet = JsonUtility.ToJson(wallet);
+
+        savePlayerData.owned = owned.ownedItem;
+        savePlayerData.playerHeadEquip = playerEquip.headEquip;
+        savePlayerData.playerBodyEquip = playerEquip.bodyEquip;
+        savePlayerData.playerWeaponEquip = playerEquip.weaponEquip;
+
+        savePlayerData.countOnBanner = JsonUtility.ToJson(countList);
+    }
+
+    public void LoadSave()
+    {
+        accountId = savePlayerData.accountId;
+        accName = savePlayerData.accName;
+        message = savePlayerData.message;
+        wallet = JsonUtility.FromJson<Wallet>(savePlayerData.wallet);
+        if (savePlayerData.owned != null) owned.ownedItem = savePlayerData.owned;
+
+        playerEquip.SetHead(savePlayerData.playerHeadEquip);
+        playerEquip.SetBody(savePlayerData.playerBodyEquip);
+        playerEquip.SetWeapon(savePlayerData.playerWeaponEquip);
+        countList = JsonUtility.FromJson<CountList>(savePlayerData.countOnBanner);
+    }
+
+    private static bool keyUnholded = true;
+    public void SaveGuarantee(int bannerId, int _count)
+    {
+        if (!keyUnholded) return;
+        keyUnholded = false;
+        if (countList.countList.Count == 0) countList.countList.Add(new CountOnBanner(bannerId, _count));
+        if (countList.countList.Find(count => count.bannerId == bannerId) == null) countList.countList.Add(new CountOnBanner(bannerId, _count));
+        countList.countList.Find(count => count.bannerId == bannerId).count = _count;
+        keyUnholded = true;
+    }
+
+    public int GetGuarantee(int bannerID)
+    {
+        if (countList.countList.Count == 0) return 0;
+        if (countList.countList.Find(count => count.bannerId == bannerID) == null) return 0;
+        return countList.countList.Find(count => count.bannerId == bannerID).count;
+    }
+
     public int GetAccountID()
     {
         return accountId;
@@ -29,11 +96,11 @@ public class Account : MonoBehaviour
 
     public void AddToWallet(Currency currency, int amount)
     {
-        wallet.Add(new Money(currency, amount));
+        wallet.money.Add(new Money(currency, amount));
     }
     public void TopUp(string currencyName, int amount)
     {
-        Money m = wallet.Find(_m => _m.GetCurrencyName() == currencyName);
+        Money m = wallet.money.Find(_m => _m.GetCurrencyName() == currencyName);
         if (m == null)
         {
             Debug.Log("This Money currency is not found");
@@ -43,46 +110,43 @@ public class Account : MonoBehaviour
 
     public void Spend(string currencyName, int amount)
     {
-        if (wallet.Count == 0) Debug.Log("Wallet is Empty");
-        Money m = wallet.Find(_m => _m.GetCurrencyName() == currencyName);
+        if (wallet.money.Count == 0) Debug.Log("Wallet is Empty");
+        Money m = wallet.money.Find(_m => _m.GetCurrencyName() == currencyName);
         m.Spend(amount);
     }
 
     public int GetMoney(string currencyName)
     {
-        if (wallet.Count == 0)
-        {
-            Debug.Log("Wallet is Empty");
-            return 0;
-        }
-        return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName)).GetAmount();
+        if (wallet.money.Count == 0) return 0;
+        if (FindCurrencyInWallet(currencyName) == null) return 0;
+
+        return wallet.money.Find(_m => _m.GetCurrencyName().Equals(currencyName)).GetAmount();
+        
     }
 
     public Money FindCurrencyInWallet(string currencyName)
     {
-        if (wallet.Count == 0)
+        if (wallet.money.Count == 0)
         {
-            Debug.Log("Wallet is Empty");
             return null;
         }
-        return wallet.Find(_m => _m.GetCurrencyName().Equals(currencyName));
+        return wallet.money.Find(_m => _m.GetCurrencyName().Equals(currencyName));
     }
     public Money FindCurrencyInWallet(int currencyId)
     {
-        if (wallet.Count == 0)
+        if (wallet.money.Count == 0)
         {
-            Debug.Log("Wallet is Empty");
             return null;
         }
-        return wallet.Find(_m => _m.GetCurrencyID() == currencyId);
+        return wallet.money.Find(_m => _m.GetCurrencyID() == currencyId);
     }
 }
 
-
+[Serializable]
 public class Money : System.Object
 {
-    protected Currency currency;
-    protected int amount;
+    public Currency currency;
+    public int amount;
 
     public Money(Currency _currency, int _amount)
     {
@@ -118,4 +182,10 @@ public class Money : System.Object
     {
         amount -= used;
     }
+}
+
+[Serializable]
+public class Wallet
+{
+    public List<Money> money = new List<Money>();
 }

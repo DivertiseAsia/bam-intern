@@ -39,7 +39,6 @@ public class Currency : System.Object
     {
         name = "Dummy";
         maxCapa = 9999;
-        Debug.LogWarning("Object Resetted");
     }
 
     //[ContextMenu("Project Exclusive/New Test Currency")]

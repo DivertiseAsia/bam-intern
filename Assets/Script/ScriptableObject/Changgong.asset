@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Changgong
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 9eafe68b221ec2845a95ec8b18a0cb9f, type: 3}
-  name: Gao Changgong
+  name: Gao
   description: 
   rarity: 2
   itemType: 1
+  itemRef: {fileID: 4876614519978404553, guid: 46665f59a6b5e8b418dc7d0bdd644c5a, type: 3}
   atkPoint: 24

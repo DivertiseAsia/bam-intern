@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6475bd317f616c45ab72070f9742267, type: 3}
+  m_Name: SavePlayerData
+  m_EditorClassIdentifier: 
+  accountId: 0
+  accName: Raliciel
+  message: AAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+  wallet: '{"money":[{"currency":{"currencyTemplate":{"instanceID":0},"currencyID":0,"name":"A","currencyIcon":{"instanceID":716},"maxCapa":9999},"amount":4},{"currency":{"currencyTemplate":{"instanceID":0},"currencyID":1,"name":"B","currencyIcon":{"instanceID":708},"maxCapa":9999},"amount":9}]}'
+  owned:
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -1122395206313996937, guid: 07d34150a7730a549afef1acbd81cc38, type: 3}
+  - {fileID: 4443435385678392811, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}
+  - {fileID: 4443435385678392811, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}
+  - {fileID: 4443435385678392811, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}
+  - {fileID: -1122395206313996937, guid: 07d34150a7730a549afef1acbd81cc38, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -1122395206313996937, guid: 07d34150a7730a549afef1acbd81cc38, type: 3}
+  - {fileID: -3900954647359185980, guid: 9d7b8ef9348e595408c76486a276e338, type: 3}
+  - {fileID: 6544358021468154004, guid: 58b2bb26254cd8e42b088595270b4ea9, type: 3}
+  - {fileID: 1827429396238167800, guid: 44f3e2a8e661cb344816724a99121335, type: 3}
+  - {fileID: 6544358021468154004, guid: 58b2bb26254cd8e42b088595270b4ea9, type: 3}
+  - {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: 4443435385678392811, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}
+  - {fileID: 1827429396238167800, guid: 44f3e2a8e661cb344816724a99121335, type: 3}
+  - {fileID: 2356602161244466628, guid: c0334e1764629aa468120e58d2a8af94, type: 3}
+  - {fileID: 3969143246089776077, guid: 331c70fb0fb454141acd455cabbc92ad, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: 6544358021468154004, guid: 58b2bb26254cd8e42b088595270b4ea9, type: 3}
+  playerHeadEquip: {fileID: 2356602161244466628, guid: c0334e1764629aa468120e58d2a8af94, type: 3}
+  playerBodyEquip: {fileID: -3468047148145432905, guid: bedfc4ef1cfede14f9f285ecb4e0456b, type: 3}
+  playerWeaponEquip: {fileID: 1827429396238167800, guid: 44f3e2a8e661cb344816724a99121335, type: 3}
+  countOnBanner: '{"countList":[{"bannerId":0,"count":3},{"bannerId":1,"count":1}]}'

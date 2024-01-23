@@ -8,10 +8,10 @@ public class ManageMoney : MonoBehaviour
     [SerializeField] private CurrenciesList currencieslist;
     [SerializeField] string currencyName;
     [SerializeField] int amount;
-    [SerializeField] Wish wish;
-    [SerializeField] public bool nextScene;
+    Wish wish => GetComponent<Wish>();
+    [HideInInspector] public bool nextScene;
 
-    
+    [SerializeField] private int rollTime = 1;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class ManageMoney : MonoBehaviour
 
     private void Update()
     {
-        if (wish != null) wish.CheckMoney(targetAcc.GetMoney(currencyName), amount);
+        if (wish != null) wish.CheckMoney(targetAcc.GetMoney(currencyName), rollTime);
     }
     public void TopUp()
     {

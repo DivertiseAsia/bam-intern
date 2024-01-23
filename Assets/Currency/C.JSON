@@ -1,0 +1,11 @@
+{
+    "currencyTemplate": {
+        "instanceID": 0
+    },
+    "currencyID": 2,
+    "name": "C",
+    "currencyIcon": {
+        "instanceID": 700
+    },
+    "maxCapa": 9999
+}

@@ -26,12 +26,12 @@ public class DisplayItem : MonoBehaviour
 
     IEnumerator ShowItem()
     {
-        animationToPlay = "ItemIn";
+        
         animator.Play("ListComeIn");
         yield return new WaitForSeconds(1);
         foreach (Item item in report.resultItem)
         {
-
+            animationToPlay = "ItemIn";
             icon.sprite = item.GetTemplate().itemIcon;
             itemName.text = item.GetTemplate().name;
             itemDescription.text = item.GetTemplate().description;

@@ -55,3 +55,8 @@ MonoBehaviour:
     name: B
     currencyIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     maxCapa: 9999
+  - currencyTemplate: {fileID: 0}
+    currencyID: 2
+    name: C
+    currencyIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    maxCapa: 9999

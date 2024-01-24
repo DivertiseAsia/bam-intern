@@ -15,7 +15,7 @@ public class CurrencyFactory : EditorWindow
     [MenuItem("Window/Currency Factory")]
     public static void ShowWindow()
     {
-        EditorWindow.GetWindow(typeof(CurrencyFactory));
+        EditorWindow.GetWindow<CurrencyFactory>("Currency Factory");
     }
 
     public void OnGUI()

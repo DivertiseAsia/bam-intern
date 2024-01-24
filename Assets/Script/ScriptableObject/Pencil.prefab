@@ -49,4 +49,5 @@ MonoBehaviour:
   description: 
   rarity: 0
   itemType: 0
+  _itemTemplate: {fileID: 11400000, guid: 80695692477474d42b2e75939be91523, type: 2}
   weaponClass: 0

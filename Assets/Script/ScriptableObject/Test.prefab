@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4876614519978404553
+--- !u!1 &2507056995195205004
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6104893397442345374}
-  - component: {fileID: 2356602161244466628}
+  - component: {fileID: 1062457307818278142}
+  - component: {fileID: 2404930932054376069}
   m_Layer: 0
-  m_Name: TeemoHat
+  m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6104893397442345374
+--- !u!4 &1062457307818278142
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876614519978404553}
+  m_GameObject: {fileID: 2507056995195205004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,21 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2356602161244466628
+--- !u!114 &2404930932054376069
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876614519978404553}
+  m_GameObject: {fileID: 2507056995195205004}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62c605f72001f6f44b8a862b95d185b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemTemplate: {fileID: 11400000, guid: 4ac7828ea3817ad4ebfacae50a27e1f2, type: 2}
+  itemTemplate: {fileID: 0}
   name: ItemName
   description: 
-  rarity: 3
+  rarity: 0
   itemType: 0
-  _itemTemplate: {fileID: 11400000, guid: 4ac7828ea3817ad4ebfacae50a27e1f2, type: 2}
+  _itemTemplate: {fileID: 11400000, guid: caa9a47d91e4f9e43b71b61b55dbdb00, type: 2}

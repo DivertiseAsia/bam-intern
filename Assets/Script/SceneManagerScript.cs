@@ -21,4 +21,10 @@ public class SceneManagerScript : MonoBehaviour
             TransverseScene();
         }
     }
+
+    public void DestroyWishandTransverseScene()
+    {
+        FindObjectOfType<WishReport>().DestroyWishReport();
+        SceneManager.LoadScene(sceneIndex);
+    }
 }

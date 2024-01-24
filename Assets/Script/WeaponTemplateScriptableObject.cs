@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponTemplateScriptableObject : ItemTemplateScriptableObject
 {
+    public WeaponClass weaponClass;
     public WeaponTemplateScriptableObject()
     {
         itemType = ItemType.weapon;

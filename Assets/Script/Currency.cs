@@ -82,7 +82,7 @@ public class Currency : System.Object
     }
 }
 
-[CreateAssetMenu(fileName = "NewCurrency", menuName = "Project Exclusive/Currency/New Currency")]
+//[CreateAssetMenu(fileName = "NewCurrency", menuName = "Project Exclusive/Currency/New Currency")]
 public class CurrencyScriptableObject : ScriptableObject
 {
     public string currencyName = "Dummy";
@@ -97,6 +97,8 @@ public class CurrencyScriptableObject : ScriptableObject
     }
 }
 
+#region Legacy
+/*
 [CustomEditor(typeof(CurrencyScriptableObject))]
 public class CurrencyEditor : Editor
 {
@@ -163,3 +165,5 @@ public class CurrencyEditor : Editor
         Debug.Log("Object edit at: " + _id + ". Now: " + _c);
     }
 }
+*/
+#endregion

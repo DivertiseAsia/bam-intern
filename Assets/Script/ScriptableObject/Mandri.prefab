@@ -49,3 +49,4 @@ MonoBehaviour:
   description: 
   rarity: 0
   itemType: 0
+  _itemTemplate: {fileID: 11400000, guid: 113777a3349c2a04082a1c27a9ed76d0, type: 2}

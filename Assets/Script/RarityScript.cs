@@ -1,42 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System;
+using System.Collections.Generic;
 
-public class RarityScript : MonoBehaviour
+[CreateAssetMenu(fileName = "RarityScript", menuName = "Project Exclusive/ Rarity")]
+public class RarityScript: ScriptableSingleton<RarityScript>
 {
-    [Header("Set Icon")]
-    [SerializeField] Sprite _commonStar;
-    [SerializeField] Sprite _rareStar;
-    [SerializeField] Sprite _epicStar;
-    [SerializeField] Sprite _legendaryStar;
+    [Header("Star")]
+    public Sprite commonStar;
+    public Sprite rareStar;
+    public Sprite epicStar;
+    public Sprite legendaryStar;
 
-    public static Sprite commonStar;
-    public static Sprite rareStar;
-    public static Sprite epicStar;
-    public static Sprite legendaryStar;
+    [Header("Color")]
+    public Color commonColor = Color.gray;
+    public Color rareColor = Color.magenta;
+    public Color epicColor = Color.green;
+    public Color legendaryColor = Color.yellow;
+}
 
-    [Header("Set Color")]
-    [SerializeField] Color _commonColor = Color.gray;
-    [SerializeField] Color _rareColor = Color.magenta;
-    [SerializeField] Color _epicColor = Color.green;
-    [SerializeField] Color _legendaryColor = Color.yellow;
-
-    public static Color commonColor = Color.gray;
-    public static Color rareColor = Color.magenta;
-    public static Color epicColor = Color.green;
-    public static Color legendaryColor = Color.yellow;
-
-    private void Start()
+/*
+public class RarityEditor: EditorWindow
+{
+    [MenuItem("Window/RarityScript")]
+    private static void OpenEditor()
     {
-        commonStar = _commonStar;
-        rareStar = _rareStar;
-        epicStar = _epicStar;
-        legendaryStar = _legendaryStar;
+        
+        EditorWindow.GetWindow(typeof(RarityEditor));
+    }
 
-        commonColor = _commonColor;
-        rareColor = _rareColor;
-        epicColor = _epicColor;
-        legendaryColor = _legendaryColor;
+    private void OnGUI()
+    {
+        EditorGUILayout.PrefixLabel("Image");
+        ShowStar("Common Star", RarityScript.commonStar);
+        ShowStar("Rare Star", RarityScript.rareStar);
+        ShowStar("Epic Star", RarityScript.epicStar);
+        ShowStar("Legendary Star", RarityScript.legendaryStar);
 
+        EditorGUILayout.Space();
+        EditorGUILayout.PrefixLabel("Color");
+        ShowColor("Common Color", RarityScript.commonColor);
+        ShowColor("Rare Color", RarityScript.rareColor);
+        ShowColor("Epic Color", RarityScript.epicColor);
+        ShowColor("Legendary Color", RarityScript.legendaryColor);
+    }
+
+    private void ShowStar(string label, Sprite sprite)
+    {
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PrefixLabel(label);
+        sprite = (Sprite)EditorGUILayout.ObjectField(sprite, typeof(Sprite), false);
+        EditorGUILayout.EndHorizontal();
+    }
+    private void ShowColor(string label, Color color)
+    {
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.PrefixLabel(label);
+        color = (Color)EditorGUILayout.ColorField(color);
+        EditorGUILayout.EndHorizontal();
     }
 }
+*/

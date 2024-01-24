@@ -21,9 +21,4 @@ public class SceneManagerScript : MonoBehaviour
             TransverseScene();
         }
     }
-    
-    public void DestroyWishReport()
-    {
-        FindObjectOfType<WishReport>().EarnItemToPlayer();
-    }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using TMPro;
 
 public class ItemThumbnail : MonoBehaviour
@@ -16,6 +17,13 @@ public class ItemThumbnail : MonoBehaviour
     [SerializeField] private TMP_Text itemName;
     public bool itemEnable;
 
+    private RarityScript rarityScript;
+
+
+    private void Start()
+    {
+        rarityScript = RarityScript.instance;
+    }
     private void Update()
     {
         if (itemTemplate == null)
@@ -41,20 +49,20 @@ public class ItemThumbnail : MonoBehaviour
         switch ((int)rarity)
         {
             case (int)Rarity.legendary:
-                rarityDisplay.sprite = RarityScript.legendaryStar;
-                postItBg.color = RarityScript.legendaryColor;
+                rarityDisplay.sprite = rarityScript.legendaryStar;
+                postItBg.color = rarityScript.legendaryColor;
                 break;
             case (int)Rarity.epic:
-                rarityDisplay.sprite = RarityScript.epicStar;
-                postItBg.color = RarityScript.epicColor;
+                rarityDisplay.sprite = rarityScript.epicStar;
+                postItBg.color = rarityScript.epicColor;
                 break;
             case (int)Rarity.rare:
-                rarityDisplay.sprite = RarityScript.rareStar;
-                postItBg.color = RarityScript.rareColor;
+                rarityDisplay.sprite = rarityScript.rareStar;
+                postItBg.color = rarityScript.rareColor;
                 break;
             case (int)Rarity.common:
-                rarityDisplay.sprite = RarityScript.commonStar;
-                postItBg.color = RarityScript.commonColor;
+                rarityDisplay.sprite = rarityScript.commonStar;
+                postItBg.color = rarityScript.commonColor;
                 break;
             default:
                 thumbImage.enabled = false;

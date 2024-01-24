@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3a563115dd320429bea3719aa830f9, type: 3}
+  m_Name: RarityScript
+  m_EditorClassIdentifier: 
+  commonStar: {fileID: -1521070236, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
+  rareStar: {fileID: -1338402728, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
+  epicStar: {fileID: -1721487918, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
+  legendaryStar: {fileID: -2145481929, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
+  commonColor: {r: 0.7490196, g: 0.9490197, b: 1, a: 1}
+  rareColor: {r: 0.94117653, g: 0.7019608, b: 1, a: 1}
+  epicColor: {r: 0.75294125, g: 1, b: 0.7490196, a: 1}
+  legendaryColor: {r: 1, g: 0.9725491, b: 0.72156864, a: 1}

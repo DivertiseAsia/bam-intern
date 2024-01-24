@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Account : MonoBehaviour
 {
-    private static Account self;
+    private static Account self; //singleton
     [SerializeField] protected int accountId;
     [SerializeField] protected string accName;
     [SerializeField] protected string message;
@@ -164,7 +164,7 @@ public class Money : System.Object
     {
         return amount;
     }
-        public int GetCurrencyID()
+    public int GetCurrencyID()
     {
         return currency.currencyID;
     }

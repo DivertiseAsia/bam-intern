@@ -12,12 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6475bd317f616c45ab72070f9742267, type: 3}
   m_Name: SavePlayerData 1
   m_EditorClassIdentifier: 
-  accountId: 0
-  accName: Player0
-  message: 
-  wallet: '{"money":[]}'
-  owned: []
-  playerHeadEquip: {fileID: 0}
-  playerBodyEquip: {fileID: 0}
-  playerWeaponEquip: {fileID: 0}
-  countOnBanner: '{"countList":[]}'
+  accountId: 1
+  accName: Raliciel
+  message: TestAccount1
+  wallet: '{"money":[{"currency":{"currencyTemplate":{"instanceID":0},"currencyID":1,"name":"B","currencyIcon":{"instanceID":708},"maxCapa":9999},"amount":0}]}'
+  owned:
+  - {fileID: -3900954647359185980, guid: 9d7b8ef9348e595408c76486a276e338, type: 3}
+  - {fileID: 3901201511294427659, guid: 0ac1154fe4dc1044c865478d01b39ddb, type: 3}
+  - {fileID: -3900954647359185980, guid: 9d7b8ef9348e595408c76486a276e338, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  - {fileID: -3900954647359185980, guid: 9d7b8ef9348e595408c76486a276e338, type: 3}
+  - {fileID: -2121926126854547104, guid: cdac50ac8db11584480957923006615e, type: 3}
+  - {fileID: 6544358021468154004, guid: 58b2bb26254cd8e42b088595270b4ea9, type: 3}
+  - {fileID: -3900954647359185980, guid: 9d7b8ef9348e595408c76486a276e338, type: 3}
+  - {fileID: -2121926126854547104, guid: cdac50ac8db11584480957923006615e, type: 3}
+  - {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  playerHeadEquip: {fileID: -7606605459880961092, guid: f5ced887a9e3e094ba40c3cfac5d4184, type: 3}
+  playerBodyEquip: {fileID: -2121926126854547104, guid: cdac50ac8db11584480957923006615e, type: 3}
+  playerWeaponEquip: {fileID: 3901201511294427659, guid: 0ac1154fe4dc1044c865478d01b39ddb, type: 3}
+  countOnBanner: '{"countList":[{"bannerId":1,"count":1}]}'

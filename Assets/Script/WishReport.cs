@@ -6,7 +6,7 @@ public class WishReport : MonoBehaviour
 {
     public List<Item> resultItem;
     private GameObject player;
-    [HideInInspector] public static WishReport self;
+    [HideInInspector] public static WishReport self; //singleton
 
     // Update is called once per frame
     void Start()
@@ -18,9 +18,19 @@ public class WishReport : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void EarnItemToPlayer()
+    public void EarnItemToPlayer(Item item)
     {
-        player.GetComponent<OwnedItemList>().AddItem(resultItem);
+        player.GetComponent<OwnedItemList>().AddItem(item);
+    }
+
+    public void DestroyWishReport()
+    {
         resultItem.Clear();
+    }
+
+    public void AddItem(Item item)
+    {
+        resultItem.Add(item);
+        EarnItemToPlayer(item);
     }
 }

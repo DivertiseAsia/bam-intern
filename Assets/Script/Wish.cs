@@ -48,7 +48,7 @@ public class Wish : MonoBehaviour
     {
         CheckItemRarity();
         float number = Random.value;
-        WishReport.self.resultItem.Add(checkRate(number));
+        WishReport.self.AddItem(checkRate(number));
     }
 
 

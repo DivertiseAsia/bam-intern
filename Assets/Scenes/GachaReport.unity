@@ -208,8 +208,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 60325991}
-        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 1901321311}
+        m_TargetAssemblyTypeName: WishReport, Assembly-CSharp
         m_MethodName: DestroyWishReport
         m_Mode: 1
         m_Arguments:
@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 162496039}
   - component: {fileID: 162496038}
   - component: {fileID: 162496037}
-  - component: {fileID: 162496040}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -352,26 +351,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &162496040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162496036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3a563115dd320429bea3719aa830f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _commonStar: {fileID: -1521070236, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _rareStar: {fileID: -1338402728, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _epicStar: {fileID: -1721487918, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _legendaryStar: {fileID: -2145481929, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _commonColor: {r: 0.6924528, g: 0.9038915, b: 1, a: 1}
-  _rareColor: {r: 0.95638984, g: 0.7773585, b: 1, a: 1}
-  _epicColor: {r: 0.81288457, g: 1, b: 0.7773585, a: 1}
-  _legendaryColor: {r: 1, g: 0.93247056, b: 0.5886792, a: 1}
 --- !u!1 &386440534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,9 +1266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9501f134de96ae4cb0f182558237d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeadEquip: {fileID: 0}
-  BodyEquip: {fileID: 0}
-  WeaponEquip: {fileID: 0}
+  headEquip: {fileID: 0}
+  bodyEquip: {fileID: 0}
+  weaponEquip: {fileID: 0}
 --- !u!114 &1564990794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,6 +1297,9 @@ MonoBehaviour:
   accountId: 0
   accName: Raliciel
   message: AYYYYYYYYYYYYYYYYYYYYYY
+  wallet:
+    money: []
+  savePlayerData: {fileID: 0}
 --- !u!4 &1564990796
 Transform:
   m_ObjectHideFlags: 0

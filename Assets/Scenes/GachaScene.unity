@@ -816,7 +816,7 @@ MonoBehaviour:
   targetAcc: {fileID: 0}
   currencieslist: {fileID: -2654294193191364039, guid: 2371db34e9d6031459d4343fbe9ff12f, type: 3}
   currencyName: B
-  amount: 30
+  amount: 10
   nextScene: 0
   rollTime: 10
 --- !u!114 &179672692
@@ -3513,7 +3513,6 @@ GameObject:
   - component: {fileID: 1033810677}
   - component: {fileID: 1033810676}
   - component: {fileID: 1033810679}
-  - component: {fileID: 1033810680}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3593,26 +3592,6 @@ MonoBehaviour:
   - {fileID: 6544358021468154004, guid: 58b2bb26254cd8e42b088595270b4ea9, type: 3}
   - {fileID: 4443435385678392811, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}
   - {fileID: 1827429396238167800, guid: 44f3e2a8e661cb344816724a99121335, type: 3}
---- !u!114 &1033810680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033810675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3a563115dd320429bea3719aa830f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _commonStar: {fileID: -1521070236, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _rareStar: {fileID: -1338402728, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _epicStar: {fileID: -1721487918, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _legendaryStar: {fileID: -2145481929, guid: 1e6cf1248d9d1f24f94e560d61f75e32, type: 3}
-  _commonColor: {r: 0.6924528, g: 0.9038915, b: 1, a: 1}
-  _rareColor: {r: 0.95638984, g: 0.7773585, b: 1, a: 1}
-  _epicColor: {r: 0.81288457, g: 1, b: 0.7773585, a: 1}
-  _legendaryColor: {r: 1, g: 0.93247056, b: 0.5886792, a: 1}
 --- !u!1 &1051568247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5029,7 +5008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bannerId: 1
-  guaranteeCount: 15
+  guaranteeCount: 20
   guaranteeFlag: 0
   itemListInBanner: []
   commonList: []

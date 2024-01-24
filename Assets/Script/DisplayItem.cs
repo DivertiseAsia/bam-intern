@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using TMPro;
 
 public class DisplayItem : MonoBehaviour
@@ -17,9 +18,12 @@ public class DisplayItem : MonoBehaviour
     Animator animator => GetComponent<Animator>();
     string animationToPlay;
 
+    private RarityScript rarityScript;
+
     SceneManagerScript manager => GetComponent<SceneManagerScript>();
     void Awake()
     {
+        rarityScript = RarityScript.instance;
         report = FindObjectOfType<WishReport>();
         StartCoroutine("ShowItem");
     }
@@ -41,20 +45,20 @@ public class DisplayItem : MonoBehaviour
             {
                 case (int)Rarity.legendary:
                     animationToPlay = "LegendaryItemIn";
-                    rarityDisplay.sprite = RarityScript.legendaryStar;
-                    background.color = RarityScript.legendaryColor;
+                    rarityDisplay.sprite = rarityScript.legendaryStar;
+                    background.color = rarityScript.legendaryColor;
                     break;
                 case (int)Rarity.epic:
-                    rarityDisplay.sprite = RarityScript.epicStar;
-                    background.color = RarityScript.epicColor;
+                    rarityDisplay.sprite = rarityScript.epicStar;
+                    background.color = rarityScript.epicColor;
                     break;
                 case (int)Rarity.rare:
-                    rarityDisplay.sprite = RarityScript.rareStar;
-                    background.color = RarityScript.rareColor;
+                    rarityDisplay.sprite = rarityScript.rareStar;
+                    background.color = rarityScript.rareColor;
                     break;
                 default:
-                    rarityDisplay.sprite = RarityScript.commonStar;
-                    background.color = RarityScript.commonColor;
+                    rarityDisplay.sprite = rarityScript.commonStar;
+                    background.color = rarityScript.commonColor;
                     break;
             }
 

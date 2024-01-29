@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
 using System;
-using System.IO;
 
 [Serializable]
 public class Currency : System.Object
@@ -40,20 +39,6 @@ public class Currency : System.Object
         name = "Dummy";
         maxCapa = 9999;
     }
-
-    //[ContextMenu("Project Exclusive/New Test Currency")]
-    //Currency Created by CurrencyFactory
-    public static void CreateNewCurrency(int _id, string _name, int _maxCapa, Sprite _icon, CurrenciesList _list)
-    {
-        Debug.Log("Data recieve: " + _id + _name + _maxCapa + _icon);
-        Currency _c = new Currency(_name, _id, _maxCapa, _icon);
-        File.WriteAllText(Application.dataPath + "/Currency/" + _name + ".JSON", _c.ExportToJSON());
-        _list.currencyList.Add(_c);
-        PrefabUtility.RecordPrefabInstancePropertyModifications(_list);
-        EditorUtility.SetDirty(_list);
-        Debug.Log("Object created: " + _c + ". Type: " + _c.GetType());
-    }
-
     public string GetName()
     {
         return name;

@@ -9,6 +9,7 @@ public class PlayerEquip : MonoBehaviour
     [SerializeField] public Body bodyEquip;
     [SerializeField] public Weapon weaponEquip;
 
+#if UNITY_EDITOR
     public void Update()
     {
         if (headEquip == null)
@@ -26,6 +27,7 @@ public class PlayerEquip : MonoBehaviour
             weaponEquip = ((GameObject)AssetDatabase.LoadAssetAtPath("Assets/Script/ScriptableObject/nullWeapon.prefab", typeof(GameObject))).GetComponent<Weapon>();
         }
     }
+#endif
 
     public void SetHead(Head item)
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
+using System.IO;
 
 public class CurrencyFactory : EditorWindow
 {
@@ -35,10 +36,22 @@ public class CurrencyFactory : EditorWindow
 
         if (GUILayout.Button("Add/Edit Currency"))
         {
-            Currency.CreateNewCurrency(id, currencyName, maxCapa, currencyIcon, currencyList);
+            CreateNewCurrency(id, currencyName, maxCapa, currencyIcon, currencyList);
             EditorUtility.SetDirty(currencyList);
         }
 
 
     }
+
+    public static void CreateNewCurrency(int _id, string _name, int _maxCapa, Sprite _icon, CurrenciesList _list)
+    {
+        Debug.Log("Data recieve: " + _id + _name + _maxCapa + _icon);
+        Currency _c = new Currency(_name, _id, _maxCapa, _icon);
+        File.WriteAllText(Application.dataPath + "/Currency/" + _name + ".JSON", _c.ExportToJSON());
+        _list.currencyList.Add(_c);
+        PrefabUtility.RecordPrefabInstancePropertyModifications(_list);
+        EditorUtility.SetDirty(_list);
+        Debug.Log("Object created: " + _c + ". Type: " + _c.GetType());
+    }
+
 }

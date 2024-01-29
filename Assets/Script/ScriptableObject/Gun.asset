@@ -18,3 +18,4 @@ MonoBehaviour:
   rarity: 0
   itemType: 2
   itemRef: {fileID: 3070143575586086576, guid: fa58481c96402e44ba2ca2e4f40b9027, type: 3}
+  weaponClass: 1

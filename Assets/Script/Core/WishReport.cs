@@ -7,6 +7,7 @@ public class WishReport : MonoBehaviour
     public List<Item> resultItem;
     private GameObject player;
     [HideInInspector] public static WishReport self; //singleton
+    public RarityScript rarity; // for creating singleton
 
     // Update is called once per frame
     void Start()

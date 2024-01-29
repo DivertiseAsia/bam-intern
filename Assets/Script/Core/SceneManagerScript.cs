@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] int sceneIndex;
+    [SerializeField] GameObject target;
     ManageMoney money => GetComponent<ManageMoney>();
     // Start is called before the first frame update
     public void TransverseScene()
@@ -26,5 +27,13 @@ public class SceneManagerScript : MonoBehaviour
     {
         FindObjectOfType<WishReport>().DestroyWishReport();
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void ToggleTarget()
+    {
+        if (target == null) return;
+
+        if (target.activeSelf) target.SetActive(false);
+        else target.SetActive(true);
     }
 }

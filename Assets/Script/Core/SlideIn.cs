@@ -5,11 +5,22 @@ using UnityEngine;
 public class SlideIn : MonoBehaviour
 {
     [SerializeField] bool activate;
+    RectTransform rect => GetComponent<RectTransform>();
+
+    public void Update()
+    {
+        CheckTouchArea();
+    }
+
+    public void Toggle()
+    {
+        if (activate) activate = false; else activate = true;
+    }
 
     // Update is called once per frame
     public void CheckTouchArea()
     {
-        if (!activate)
+        if (activate)
         {
             SlideNaviDown();
         }
@@ -21,13 +32,11 @@ public class SlideIn : MonoBehaviour
     }
     void SlideNaviDown()
     {
-        activate = true;
-        transform.position = new Vector3(382, 310, 0);
+        rect.SetLocalPositionAndRotation(new Vector2(0, 120), Quaternion.identity);
     }
 
     void SlideNaviUp()
     {
-        activate = false;
-        transform.position = new Vector3(382, 466, 0);
+        rect.SetLocalPositionAndRotation(new Vector2(0, 300), Quaternion.identity);
     }
 }
